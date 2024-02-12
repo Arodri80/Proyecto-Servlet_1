@@ -1,6 +1,4 @@
 package ejemplos.servlet.curso;
-
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,21 +8,34 @@ import java.io.PrintWriter;
 
 @WebServlet(urlPatterns = "/myServlet")
 public class MyServlet extends HttpServlet {
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
+        // Respuesta como código HTML
+        response.setContentType("text/html");
 
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+        // Escribir la respuesta
+        PrintWriter out = response.getWriter();
 
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
+        // Escribir el código HTML del formulario como respuesta
+        out.println("<!DOCTYPE html>");
+        out.println("<html>");
+        out.println("<body>");
 
-		// send HTML page to client
-		out.println("<html>");
-		out.println("<head><title>Ejemplo HTML desde Servlet</title></head>");
-		out.println("<body>");
-		out.println("<h1>Ejemplo Servlet</h1>");
-		out.println("<p>Este es un ejemplo en el curso de Java para generar HTML desde un Servlet.</p>");
-		out.println("<p><a href=\"/myServlet2\">Vamos al otro Servlet</a></p>");
-		out.println("</body></html>");
-	}
+        out.println("<h2>HTML Forms</h2>");
+
+        out.println("<form action=\"/myServlet2\" method=\"post\">"); //establecer una accion post a myServlet2
+        out.println("<label for=\"fname\">First name:</label><br>");
+        out.println("<input type=\"text\" id=\"fname\" name=\"fname\" value=\"John\"><br>");
+        out.println("<label for=\"lname\">Last name:</label><br>");
+        out.println("<input type=\"text\" id=\"lname\" name=\"lname\" value=\"Doe\"><br><br>");
+        out.println("<input type=\"submit\" value=\"Submit\">");
+        out.println("</form>");
+
+        out.println("<p>If you click the \"Submit\" button, the form-data will be sent to MyServlet2.</p>");
+
+        out.println("</body>");
+        out.println("</html>");
+    }
+
 
 }

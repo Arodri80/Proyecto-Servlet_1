@@ -1,6 +1,4 @@
 package ejemplos.servlet.curso;
-
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -8,20 +6,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+
 @WebServlet(urlPatterns = "/myServlet2")
 public class MyServlet2 extends HttpServlet {
-
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+		public void doPost(HttpServletRequest request, HttpServletResponse response)// Implementa solicitudes post
+			throws IOException {
+		// obtener los parámetros del formulario y escribir la respuesta
+		String firstName = request.getParameter("fname");
+		String lastName = request.getParameter("lname");
 
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-
-		// send HTML page to client
-		out.println("<html>");
-		out.println("<head><title>Ejemplo HTML desde Servlet</title></head>");
-		out.println("<body>");
-		out.println("<h1>Bienvenido!!</h1>");
+		out.println("<html><body>");
+		out.println("<h2>Bienvenido " + firstName + " " + lastName + "</h2>");
+		out.println("</body></html>");
 	}
-
 }
