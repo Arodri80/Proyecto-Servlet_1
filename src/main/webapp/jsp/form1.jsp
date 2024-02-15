@@ -1,18 +1,19 @@
-         <!DOCTYPE html>
-        <html>
-        <body>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario 1</title>
+</head>
+<body>
 
-               <h2>HTML Forms</h2>
+<h2>Formulario 1</h2>
 
-                <form action="/myServlet2" method="post">
-                    <label for="fname">First name:</label><br>
-                        <input type="text" id="fname" name="fname" value="John"><br>
-                        <label for="lname">Last name:</label><br>
-                        <input type="text" id="lname" name="lname" value="Doe"><br><br>
-                        <input type="submit" value="Submit">
-                </form>");
+<form action="/myServlet2" method="post">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" value="Juanito"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value="Alimaña"><br><br>
+  <input type="submit" value="Submit">
+</form>
 
-            <p>If you click the "Submit" button, the form-data will be sent to MyServlet2.<p>
-
-        </body>
-        </html>
+</body>
+</html>

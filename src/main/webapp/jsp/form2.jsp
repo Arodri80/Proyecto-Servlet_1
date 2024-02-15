@@ -1,8 +1,11 @@
- <!DOCTYPE html>
-        <html>
-        <body>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario 2</title>
+</head>
+<body>
 
-            <h2>Bienvenido  + (fname) + " " + request.getParameter("lname") + </h2>
+<h2>Bienvenido <%= request.getAttribute("firstName") %> <%= request.getAttribute("lastName") %></h2>
 
-        </body>
-        </html>
+</body>
+</html>tml>
